@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flux SEO Enhanced with Gemini AI - Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&family=Kanit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="flux-seo-enhanced-gemini.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .demo-notice {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .demo-notice a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .demo-features {
+            background: #f8fafc;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .demo-features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .demo-features h2 {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        
+        .demo-features p {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+        
+        .demo-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .demo-feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .demo-feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .demo-feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .demo-feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 12px;
+        }
+        
+        .demo-feature-description {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        .demo-cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+        }
+        
+        .demo-cta h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .demo-cta p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+        
+        .demo-cta-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .demo-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .demo-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-notice">
+        🚀 <strong>Demo Mode:</strong> Experience Flux SEO Enhanced with Google Gemini 2.5 Pro AI - Thai/English language switching and advanced analytics. 
+        <a href="#features">See Features Below</a>
+    </div>
+
+    <!-- Main Application -->
+    <div id="flux-seo-enhanced-container" class="flux-seo-enhanced-app">
+        <!-- Language Switcher -->
+        <div class="flux-seo-language-switcher">
+            <label for="flux-seo-language-select">Language / ภาษา:</label>
+            <select id="flux-seo-language-select" class="flux-seo-language-dropdown">
+                <option value="en">🇺🇸 English</option>
+                <option value="th">🇹🇭 ไทย</option>
+            </select>
+        </div>
+
+        <!-- Enhanced Header -->
+        <div class="flux-seo-header">
+            <div class="flux-seo-header-content">
+                <div class="flux-seo-logo">
+                    <div class="flux-seo-logo-icon">🤖</div>
+                    <div class="flux-seo-logo-text">
+                        <h1 id="flux-seo-title">Flux SEO Enhanced with Gemini AI</h1>
+                        <p id="flux-seo-subtitle">Professional SEO optimization powered by Google Gemini 2.5 Pro</p>
+                    </div>
+                </div>
+                <div class="flux-seo-features-badges">
+                    <span class="flux-seo-badge">🤖 Gemini 2.5 Pro</span>
+                    <span class="flux-seo-badge">🇹🇭 Thai AI</span>
+                    <span class="flux-seo-badge">📊 Advanced Analytics</span>
+                    <span class="flux-seo-badge">🎯 SEO Intelligence</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Navigation -->
+        <div class="flux-seo-nav">
+            <button class="flux-seo-nav-tab active" data-tab="analyzer">
+                <span class="flux-seo-nav-icon">🔍</span>
+                <span class="flux-seo-nav-text" data-key="contentAnalyzer">AI Content Analyzer</span>
+            </button>
+            <button class="flux-seo-nav-tab" data-tab="generator">
+                <span class="flux-seo-nav-icon">✨</span>
+                <span class="flux-seo-nav-text" data-key="blogGenerator">AI Blog Generator</span>
+            </button>
+            <button class="flux-seo-nav-tab" data-tab="analytics">
+                <span class="flux-seo-nav-icon">📊</span>
+                <span class="flux-seo-nav-text" data-key="advancedAnalytics">Advanced Analytics</span>
+            </button>
+
+            <button class="flux-seo-nav-tab" data-tab="keywords">
+                <span class="flux-seo-nav-icon">🎯</span>
+                <span class="flux-seo-nav-text" data-key="keywordResearch">Keyword Research</span>
+            </button>
+            <button class="flux-seo-nav-tab" data-tab="meta">
+                <span class="flux-seo-nav-icon">🌐</span>
+                <span class="flux-seo-nav-text" data-key="metaTags">Meta Tags</span>
+            </button>
+            <button class="flux-seo-nav-tab" data-tab="schema">
+                <span class="flux-seo-nav-icon">📋</span>
+                <span class="flux-seo-nav-text" data-key="schema">Schema</span>
+            </button>
+            <button class="flux-seo-nav-tab" data-tab="technical">
+                <span class="flux-seo-nav-icon">⚙️</span>
+                <span class="flux-seo-nav-text" data-key="technical">Technical</span>
+            </button>
+            <button class="flux-seo-nav-tab" data-tab="chatbot">
+                <span class="flux-seo-nav-icon">💬</span>
+                <span class="flux-seo-nav-text" data-key="chatbot">Chatbot</span>
+            </button>
+            <button class="flux-seo-nav-tab" data-tab="settings">
+                <span class="flux-seo-nav-icon">⚙️</span>
+                <span class="flux-seo-nav-text" data-key="settings">Settings</span>
+            </button>
+        </div>
+
+        <!-- Content Area -->
+        <div class="flux-seo-content">
+            <!-- AI Content Analyzer Tab -->
+            <div id="analyzer-tab" class="flux-seo-tab-content active">
+                <div class="flux-seo-card">
+                    <div class="flux-seo-card-header">
+                        <h2 class="flux-seo-card-title">
+                            <span class="flux-seo-card-icon">🔍</span>
+                            <span data-key="contentAnalyzer">AI Content Analyzer</span>
+                        </h2>
+                        <p class="flux-seo-card-description">
+                            Advanced content analysis powered by Google Gemini 2.5 Pro AI
+                        </p>
+                    </div>
+                    <div class="flux-seo-card-body">
+                        <div class="flux-seo-form">
+                            <div class="flux-seo-form-group">
+                                <label class="flux-seo-label">Content to Analyze</label>
+                                <textarea 
+                                    id="analyzer-content" 
+                                    class="flux-seo-textarea" 
+                                    rows="8"
+                                    placeholder="Enter your content for AI-powered SEO analysis..."></textarea>
+                            </div>
+                            <div class="flux-seo-form-row">
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label" data-key="keywords">Target Keywords</label>
+                                    <input type="text" id="analyzer-keywords" class="flux-seo-input" 
+                                           placeholder="Enter target keywords">
+                                </div>
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label" data-key="targetAudience">Target Audience</label>
+                                    <select id="analyzer-audience" class="flux-seo-select">
+                                        <option value="general" data-key="general">General Audience</option>
+                                        <option value="business" data-key="business">Business Professionals</option>
+                                        <option value="students" data-key="students">Students</option>
+                                        <option value="experts" data-key="experts">Industry Experts</option>
+                                        <option value="consumers" data-key="consumers">Consumers</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flux-seo-form-actions">
+                                <button id="analyze-btn" class="flux-seo-btn flux-seo-btn-primary">
+                                    <span class="flux-seo-btn-icon">🤖</span>
+                                    <span class="flux-seo-btn-text" data-key="analyze">Analyze with Gemini AI</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="analysis-results" class="flux-seo-results" style="display: none;">
+                            <div class="flux-seo-results-header">
+                                <h3>AI Analysis Results</h3>
+                                <span class="flux-seo-ai-badge" data-key="poweredByGemini">Powered by Google Gemini 2.5 Pro</span>
+                            </div>
+                            <div class="flux-seo-enhanced-metrics">
+                                <div class="flux-seo-metric-card">
+                                    <div class="flux-seo-metric-value" id="seo-score">--</div>
+                                    <div class="flux-seo-metric-label" data-key="seoScore">SEO Score</div>
+                                </div>
+                                <div class="flux-seo-metric-card">
+                                    <div class="flux-seo-metric-value" id="content-quality-score">--</div>
+                                    <div class="flux-seo-metric-label" data-key="contentQuality">Content Quality</div>
+                                </div>
+                                <div class="flux-seo-metric-card">
+                                    <div class="flux-seo-metric-value" id="readability-score">--</div>
+                                    <div class="flux-seo-metric-label" data-key="readability">Readability</div>
+                                </div>
+                                <div class="flux-seo-metric-card">
+                                    <div class="flux-seo-metric-value" id="engagement-score">--</div>
+                                    <div class="flux-seo-metric-label" data-key="engagement">Engagement</div>
+                                </div>
+                            </div>
+                            <div id="gemini-insights" class="flux-seo-insights">
+                                <h4 data-key="geminiInsights">Gemini AI Insights</h4>
+                                <div id="gemini-analysis-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Blog Generator Tab -->
+            <div id="generator-tab" class="flux-seo-tab-content">
+                <div class="flux-seo-card">
+                    <div class="flux-seo-card-header">
+                        <h2 class="flux-seo-card-title">
+                            <span class="flux-seo-card-icon">✨</span>
+                            <span data-key="blogGenerator">AI Blog Generator</span>
+                        </h2>
+                        <p class="flux-seo-card-description">
+                            Generate professional blog content with Google Gemini 2.5 Pro AI
+                        </p>
+                    </div>
+                    <div class="flux-seo-card-body">
+                        <div class="flux-seo-form">
+                            <div class="flux-seo-form-row">
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label" data-key="topic">Topic</label>
+                                    <input type="text" id="generator-topic" class="flux-seo-input" 
+                                           placeholder="e.g., AI in Digital Marketing, การตลาดดิจิทัลด้วย AI">
+                                </div>
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label" data-key="contentType">Content Type</label>
+                                    <select id="generator-type" class="flux-seo-select">
+                                        <option value="blogPost" data-key="blogPost">Blog Post</option>
+                                        <option value="article" data-key="article">Article</option>
+                                        <option value="guide" data-key="guide">How-to Guide</option>
+                                        <option value="review" data-key="review">Review</option>
+                                        <option value="tutorial" data-key="tutorial">Tutorial</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flux-seo-form-row">
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label" data-key="tone">Tone</label>
+                                    <select id="generator-tone" class="flux-seo-select">
+                                        <option value="professional" data-key="professional">Professional</option>
+                                        <option value="casual" data-key="casual">Casual</option>
+                                        <option value="formal" data-key="formal">Formal</option>
+                                        <option value="conversational" data-key="conversational">Conversational</option>
+                                        <option value="technical" data-key="technical">Technical</option>
+                                    </select>
+                                </div>
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label" data-key="targetAudience">Target Audience</label>
+                                    <select id="generator-audience" class="flux-seo-select">
+                                        <option value="general" data-key="general">General Audience</option>
+                                        <option value="business" data-key="business">Business Professionals</option>
+                                        <option value="students" data-key="students">Students</option>
+                                        <option value="experts" data-key="experts">Industry Experts</option>
+                                        <option value="consumers" data-key="consumers">Consumers</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flux-seo-form-row">
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label" data-key="wordCount">Word Count</label>
+                                    <select id="generator-wordcount" class="flux-seo-select">
+                                        <option value="500">500 words (Short)</option>
+                                        <option value="1000" selected>1,000 words (Medium)</option>
+                                        <option value="1500">1,500 words (Long)</option>
+                                        <option value="2000">2,000 words (Comprehensive)</option>
+                                    </select>
+                                </div>
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label" data-key="keywords">Keywords</label>
+                                    <input type="text" id="generator-keywords" class="flux-seo-input" 
+                                           placeholder="AI, SEO, digital marketing">
+                                </div>
+                            </div>
+                            <div class="flux-seo-form-actions">
+                                <button id="generate-btn" class="flux-seo-btn flux-seo-btn-primary">
+                                    <span class="flux-seo-btn-icon">🤖</span>
+                                    <span class="flux-seo-btn-text" data-key="generate">Generate with AI</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="generation-results" class="flux-seo-results" style="display: none;">
+                            <div class="flux-seo-results-header">
+                                <h3>AI Generated Content</h3>
+                                <div class="flux-seo-results-actions">
+                                    <span class="flux-seo-ai-badge" data-key="poweredByGemini">Powered by Google Gemini 2.5 Pro</span>
+                                    <button id="copy-content-btn" class="flux-seo-btn flux-seo-btn-secondary">
+                                        <span class="flux-seo-btn-icon">📋</span>
+                                        <span>Copy</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="generated-content-display" class="flux-seo-generated-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Analytics Tab -->
+            <div id="analytics-tab" class="flux-seo-tab-content">
+                <div class="flux-seo-card">
+                    <div class="flux-seo-card-header">
+                        <h2 class="flux-seo-card-title">
+                            <span class="flux-seo-card-icon">📊</span>
+                            <span data-key="analytics">Advanced SEO Analytics & Strategy Hub</span>
+                        </h2>
+                        <p class="flux-seo-card-description">
+                            A comprehensive workflow to analyze, strategize, and optimize your SEO performance.
+                        </p>
+                    </div>
+                    <div class="flux-seo-card-body">
+                        <div class="flux-seo-analytics-workflow">
+                            
+                            <!-- Section 1: Define Goals and Scope -->
+                            <div class="flux-seo-analytics-section">
+                                <div class="flux-seo-section-header" onclick="FluxSEOEnhanced.toggleAnalyticsSection('goals')">
+                                    <h3>1. Define Goals and Scope</h3>
+                                    <span class="flux-seo-section-toggle">▼</span>
+                                </div>
+                                <div id="analytics-goals" class="flux-seo-section-content">
+                                    <div class="flux-seo-form-group">
+                                        <label for="business-type">Business Type</label>
+                                        <select id="business-type" class="flux-seo-select">
+                                            <option value="">Select business type</option>
+                                            <option value="ecommerce">E-commerce</option>
+                                            <option value="blog">Blog/Content Site</option>
+                                            <option value="local">Local Business</option>
+                                            <option value="saas">SaaS/Software</option>
+                                            <option value="corporate">Corporate</option>
+                                            <option value="nonprofit">Non-profit</option>
+                                        </select>
+                                    </div>
+                                    <div class="flux-seo-form-group">
+                                        <label for="primary-goals">Primary SEO Goals</label>
+                                        <div class="flux-seo-checkbox-group">
+                                            <label><input type="checkbox" value="traffic"> Increase Organic Traffic</label>
+                                            <label><input type="checkbox" value="conversions"> Improve Conversions</label>
+                                            <label><input type="checkbox" value="rankings"> Boost Keyword Rankings</label>
+                                            <label><input type="checkbox" value="local"> Local SEO Visibility</label>
+                                            <label><input type="checkbox" value="brand"> Brand Awareness</label>
+                                        </div>
+                                    </div>
+                                    <div class="flux-seo-form-group">
+                                        <label for="target-audience">Target Audience</label>
+                                        <textarea id="target-audience" class="flux-seo-textarea" placeholder="Describe your target audience demographics, interests, and behavior..."></textarea>
+                                    </div>
+                                    <button class="flux-seo-btn flux-seo-btn-primary" onclick="FluxSEOEnhanced.analyzeGoals()">
+                                        <span class="flux-seo-btn-icon">🎯</span>
+                                        <span class="flux-seo-btn-text">Analyze Goals with AI</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Section 2: Keyword Research and Scoring -->
+                            <div class="flux-seo-analytics-section">
+                                <div class="flux-seo-section-header" onclick="FluxSEOEnhanced.toggleAnalyticsSection('keywords')">
+                                    <h3>2. Keyword Research and Scoring</h3>
+                                    <span class="flux-seo-section-toggle">▼</span>
+                                </div>
+                                <div id="analytics-keywords" class="flux-seo-section-content">
+                                    <div class="flux-seo-form-group">
+                                        <label for="seed-keywords">Seed Keywords</label>
+                                        <input type="text" id="seed-keywords" class="flux-seo-input" placeholder="Enter main keywords separated by commas">
+                                    </div>
+                                    <div class="flux-seo-form-group">
+                                        <label for="competitor-urls">Competitor URLs</label>
+                                        <textarea id="competitor-urls" class="flux-seo-textarea" placeholder="Enter competitor URLs (one per line)"></textarea>
+                                    </div>
+                                    <div class="flux-seo-keyword-metrics">
+                                        <div class="flux-seo-metric-card">
+                                            <h4>Search Volume</h4>
+                                            <div class="flux-seo-metric-value">12,500/mo</div>
+                                        </div>
+                                        <div class="flux-seo-metric-card">
+                                            <h4>Keyword Difficulty</h4>
+                                            <div class="flux-seo-metric-value">65/100</div>
+                                        </div>
+                                        <div class="flux-seo-metric-card">
+                                            <h4>Opportunity Score</h4>
+                                            <div class="flux-seo-metric-value">78/100</div>
+                                        </div>
+                                    </div>
+                                    <button class="flux-seo-btn flux-seo-btn-primary" onclick="FluxSEOEnhanced.analyzeKeywords()">
+                                        <span class="flux-seo-btn-icon">🔍</span>
+                                        <span class="flux-seo-btn-text">Research Keywords with AI</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Section 3: Technical SEO Audit -->
+                            <div class="flux-seo-analytics-section">
+                                <div class="flux-seo-section-header" onclick="FluxSEOEnhanced.toggleAnalyticsSection('technical')">
+                                    <h3>3. Technical SEO Audit</h3>
+                                    <span class="flux-seo-section-toggle">▼</span>
+                                </div>
+                                <div id="analytics-technical" class="flux-seo-section-content">
+                                    <div class="flux-seo-form-group">
+                                        <label for="audit-site-url">Site URL for Audit</label>
+                                        <input type="url" id="audit-site-url" class="flux-seo-input" placeholder="https://example.com">
+                                    </div>
+                                    <div class="flux-seo-audit-actions">
+                                        <button class="flux-seo-btn flux-seo-btn-secondary">Run Site Health Check (Mock)</button>
+                                        <button class="flux-seo-btn flux-seo-btn-secondary">Analyze Core Web Vitals (Mock)</button>
+                                        <button class="flux-seo-btn flux-seo-btn-secondary">Check Indexability (Mock)</button>
+                                    </div>
+                                    <div class="flux-seo-form-group">
+                                        <label for="audit-results">Mock Audit Results:</label>
+                                        <textarea id="audit-results" class="flux-seo-textarea" readonly>No broken links found. Core Web Vitals: LCP 2.1s, FID 30ms, CLS 0.05. Indexability: 95% pages indexed.</textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section 4: On-Page SEO Analysis -->
+                            <div class="flux-seo-analytics-section">
+                                <div class="flux-seo-section-header" onclick="FluxSEOEnhanced.toggleAnalyticsSection('onpage')">
+                                    <h3>4. On-Page SEO Analysis</h3>
+                                    <span class="flux-seo-section-toggle">▼</span>
+                                </div>
+                                <div id="analytics-onpage" class="flux-seo-section-content">
+                                    <div class="flux-seo-form-group">
+                                        <label for="page-url-analyze">Page URL to Analyze</label>
+                                        <input type="url" id="page-url-analyze" class="flux-seo-input" placeholder="https://example.com/page">
+                                    </div>
+                                    <div class="flux-seo-onpage-metrics">
+                                        <div class="flux-seo-metric-grid">
+                                            <div class="flux-seo-metric-item">
+                                                <h4>Title Tag</h4>
+                                                <p>Your Current Title (Mock)</p>
+                                            </div>
+                                            <div class="flux-seo-metric-item">
+                                                <h4>Meta Description</h4>
+                                                <p>Your current meta description is here... (Mock)</p>
+                                            </div>
+                                            <div class="flux-seo-metric-item">
+                                                <h4>Header Tags (H1-H6)</h4>
+                                                <p>H1: Found, H2: 3 Found (Mock)</p>
+                                            </div>
+                                            <div class="flux-seo-metric-item">
+                                                <h4>Keyword Density</h4>
+                                                <p>Primary Keyword: 2.5% (Mock)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flux-seo-audit-actions">
+                                        <button class="flux-seo-btn flux-seo-btn-secondary">Optimize Title/Meta (Mock)</button>
+                                        <button class="flux-seo-btn flux-seo-btn-secondary">Improve Internal Linking (Mock)</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section 5: Off-Page SEO and Link Analysis -->
+                            <div class="flux-seo-analytics-section">
+                                <div class="flux-seo-section-header" onclick="FluxSEOEnhanced.toggleAnalyticsSection('offpage')">
+                                    <h3>5. Off-Page SEO and Link Analysis</h3>
+                                    <span class="flux-seo-section-toggle">▼</span>
+                                </div>
+                                <div id="analytics-offpage" class="flux-seo-section-content">
+                                    <div class="flux-seo-form-group">
+                                        <label for="domain-analysis">Domain for Backlink Analysis</label>
+                                        <input type="url" id="domain-analysis" class="flux-seo-input" placeholder="https://example.com">
+                                    </div>
+                                    <div class="flux-seo-backlink-metrics">
+                                        <div class="flux-seo-metric-card">
+                                            <h4>Total Backlinks</h4>
+                                            <div class="flux-seo-metric-value">1,247</div>
+                                        </div>
+                                        <div class="flux-seo-metric-card">
+                                            <h4>Referring Domains</h4>
+                                            <div class="flux-seo-metric-value">89</div>
+                                        </div>
+                                        <div class="flux-seo-metric-card">
+                                            <h4>Domain Authority</h4>
+                                            <div class="flux-seo-metric-value">72/100</div>
+                                        </div>
+                                    </div>
+                                    <button class="flux-seo-btn flux-seo-btn-primary" onclick="FluxSEOEnhanced.analyzeBacklinks()">
+                                        <span class="flux-seo-btn-icon">🔗</span>
+                                        <span class="flux-seo-btn-text">Analyze Backlink Profile</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Section 6: Content Strategy Development -->
+                            <div class="flux-seo-analytics-section">
+                                <div class="flux-seo-section-header" onclick="FluxSEOEnhanced.toggleAnalyticsSection('content')">
+                                    <h3>6. Content Strategy Development</h3>
+                                    <span class="flux-seo-section-toggle">▼</span>
+                                </div>
+                                <div id="analytics-content" class="flux-seo-section-content">
+                                    <div class="flux-seo-form-group">
+                                        <label for="content-topics">Content Topics/Themes</label>
+                                        <textarea id="content-topics" class="flux-seo-textarea" placeholder="Enter main content topics and themes..."></textarea>
+                                    </div>
+                                    <div class="flux-seo-form-group">
+                                        <label for="content-frequency">Publishing Frequency</label>
+                                        <select id="content-frequency" class="flux-seo-select">
+                                            <option value="daily">Daily</option>
+                                            <option value="weekly">Weekly</option>
+                                            <option value="biweekly">Bi-weekly</option>
+                                            <option value="monthly">Monthly</option>
+                                        </select>
+                                    </div>
+                                    <button class="flux-seo-btn flux-seo-btn-primary" onclick="FluxSEOEnhanced.generateContentStrategy()">
+                                        <span class="flux-seo-btn-icon">📝</span>
+                                        <span class="flux-seo-btn-text">Generate Content Strategy</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Section 7: Performance Tracking and Reporting -->
+                            <div class="flux-seo-analytics-section">
+                                <div class="flux-seo-section-header" onclick="FluxSEOEnhanced.toggleAnalyticsSection('tracking')">
+                                    <h3>7. Performance Tracking and Reporting</h3>
+                                    <span class="flux-seo-section-toggle">▼</span>
+                                </div>
+                                <div id="analytics-tracking" class="flux-seo-section-content">
+                                    <div class="flux-seo-tracking-dashboard">
+                                        <div class="flux-seo-metric-card">
+                                            <h4>Organic Traffic</h4>
+                                            <div class="flux-seo-metric-value">+23%</div>
+                                            <div class="flux-seo-metric-trend">📈 vs last month</div>
+                                        </div>
+                                        <div class="flux-seo-metric-card">
+                                            <h4>Avg. Position</h4>
+                                            <div class="flux-seo-metric-value">12.4</div>
+                                            <div class="flux-seo-metric-trend">📈 +2.1 positions</div>
+                                        </div>
+                                        <div class="flux-seo-metric-card">
+                                            <h4>Click-through Rate</h4>
+                                            <div class="flux-seo-metric-value">3.2%</div>
+                                            <div class="flux-seo-metric-trend">📈 +0.4%</div>
+                                        </div>
+                                    </div>
+                                    <button class="flux-seo-btn flux-seo-btn-primary" onclick="FluxSEOEnhanced.generateReport()">
+                                        <span class="flux-seo-btn-icon">📊</span>
+                                        <span class="flux-seo-btn-text">Generate Performance Report</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Section 8: Continuous Monitoring and Adaptation -->
+                            <div class="flux-seo-analytics-section">
+                                <div class="flux-seo-section-header" onclick="FluxSEOEnhanced.toggleAnalyticsSection('monitoring')">
+                                    <h3>8. Continuous Monitoring and Adaptation</h3>
+                                    <span class="flux-seo-section-toggle">▼</span>
+                                </div>
+                                <div id="analytics-monitoring" class="flux-seo-section-content">
+                                    <div class="flux-seo-form-group">
+                                        <label for="monitoring-frequency">Monitoring Frequency</label>
+                                        <select id="monitoring-frequency" class="flux-seo-select">
+                                            <option value="daily">Daily</option>
+                                            <option value="weekly">Weekly</option>
+                                            <option value="monthly">Monthly</option>
+                                        </select>
+                                    </div>
+                                    <div class="flux-seo-form-group">
+                                        <label for="alert-thresholds">Alert Thresholds</label>
+                                        <div class="flux-seo-threshold-settings">
+                                            <label>Traffic Drop: <input type="number" value="10" min="1" max="50">%</label>
+                                            <label>Ranking Drop: <input type="number" value="5" min="1" max="20"> positions</label>
+                                            <label>Page Speed: <input type="number" value="3" min="1" max="10"> seconds</label>
+                                        </div>
+                                    </div>
+                                    <button class="flux-seo-btn flux-seo-btn-primary" onclick="FluxSEOEnhanced.setupMonitoring()">
+                                        <span class="flux-seo-btn-icon">🔔</span>
+                                        <span class="flux-seo-btn-text">Setup Monitoring Alerts</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEO Optimizer Tab -->
+            <div id="optimizer-tab" class="flux-seo-tab-content">
+                <div class="flux-seo-card">
+                    <div class="flux-seo-card-header">
+                        <h2 class="flux-seo-card-title">
+                            <span class="flux-seo-card-icon">⚡</span>
+                            <span data-key="seoOptimizer">SEO Optimizer</span>
+                        </h2>
+                        <p class="flux-seo-card-description">
+                            Optimize your content for search engines with AI recommendations
+                        </p>
+                    </div>
+                    <div class="flux-seo-card-body">
+                        <div class="flux-seo-form">
+                            <div class="flux-seo-form-group">
+                                <label class="flux-seo-label">Content to Optimize</label>
+                                <textarea 
+                                    id="optimizer-content" 
+                                    class="flux-seo-textarea" 
+                                    rows="8"
+                                    placeholder="Paste your content here for AI-powered SEO optimization..."></textarea>
+                            </div>
+                            <div class="flux-seo-form-row">
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label" data-key="keywords">Target Keywords</label>
+                                    <input type="text" id="optimizer-keywords" class="flux-seo-input" 
+                                           placeholder="Primary and secondary keywords">
+                                </div>
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label" data-key="targetAudience">Target Audience</label>
+                                    <select id="optimizer-audience" class="flux-seo-select">
+                                        <option value="general" data-key="general">General Audience</option>
+                                        <option value="business" data-key="business">Business Professionals</option>
+                                        <option value="students" data-key="students">Students</option>
+                                        <option value="experts" data-key="experts">Industry Experts</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flux-seo-form-actions">
+                                <button id="optimize-btn" class="flux-seo-btn flux-seo-btn-primary">
+                                    <span class="flux-seo-btn-icon">⚡</span>
+                                    <span class="flux-seo-btn-text" data-key="optimize">Optimize with AI</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="optimization-results" class="flux-seo-results" style="display: none;">
+                            <div class="flux-seo-results-header">
+                                <h3>SEO Optimization Results</h3>
+                                <span class="flux-seo-ai-badge" data-key="poweredByGemini">Powered by Google Gemini 2.5 Pro</span>
+                            </div>
+                            <div id="optimization-display" class="flux-seo-optimization-display"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keyword Research Tab -->
+            <div id="keywords-tab" class="flux-seo-tab-content">
+                <div class="flux-seo-card">
+                    <div class="flux-seo-card-header">
+                        <h2 class="flux-seo-card-title">
+                            <span class="flux-seo-card-icon">🎯</span>
+                            <span data-key="keywordResearch">AI Keyword Research</span>
+                        </h2>
+                        <p class="flux-seo-card-description">
+                            Discover high-value keywords with AI-powered research and scoring
+                        </p>
+                    </div>
+                    <div class="flux-seo-card-body">
+                        <div class="flux-seo-form">
+                            <div class="flux-seo-form-row">
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label">Seed Keywords</label>
+                                    <input type="text" id="keyword-seeds" class="flux-seo-input" 
+                                           placeholder="Enter seed keywords or topics">
+                                </div>
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label">Industry/Niche</label>
+                                    <input type="text" id="keyword-industry" class="flux-seo-input" 
+                                           placeholder="e.g., Digital Marketing, E-commerce">
+                                </div>
+                            </div>
+                            <div class="flux-seo-form-actions">
+                                <button id="research-keywords-btn" class="flux-seo-btn flux-seo-btn-primary">
+                                    <span class="flux-seo-btn-icon">🎯</span>
+                                    <span class="flux-seo-btn-text">Research Keywords with AI</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="keyword-results" class="flux-seo-results" style="display: none;">
+                            <div class="flux-seo-results-header">
+                                <h3>AI Keyword Research Results</h3>
+                                <span class="flux-seo-ai-badge" data-key="poweredByGemini">Powered by Google Gemini 2.5 Pro</span>
+                            </div>
+                            <div id="keyword-display" class="flux-seo-keyword-display"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meta Tags Tab -->
+            <div id="meta-tab" class="flux-seo-tab-content">
+                <div class="flux-seo-card">
+                    <div class="flux-seo-card-header">
+                        <h2 class="flux-seo-card-title">
+                            <span class="flux-seo-card-icon">🌐</span>
+                            <span data-key="metaTags">Meta Tags Generator</span>
+                        </h2>
+                        <p class="flux-seo-card-description">
+                            Generate and optimize meta tags for better search engine visibility
+                        </p>
+                    </div>
+                    <div class="flux-seo-card-body">
+                        <div class="flux-seo-form">
+                            <div class="flux-seo-form-group">
+                                <label class="flux-seo-label">Page Title</label>
+                                <input type="text" id="meta-title" class="flux-seo-input" 
+                                       placeholder="Enter your page title (50-60 characters)" maxlength="60">
+                                <small class="flux-seo-help-text">Character count: <span id="title-count">0</span>/60</small>
+                            </div>
+                            <div class="flux-seo-form-group">
+                                <label class="flux-seo-label">Meta Description</label>
+                                <textarea id="meta-description" class="flux-seo-textarea" rows="3"
+                                          placeholder="Enter meta description (150-160 characters)" maxlength="160"></textarea>
+                                <small class="flux-seo-help-text">Character count: <span id="description-count">0</span>/160</small>
+                            </div>
+                            <div class="flux-seo-form-row">
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label">Focus Keywords</label>
+                                    <input type="text" id="meta-keywords" class="flux-seo-input" 
+                                           placeholder="Primary keyword, secondary keyword">
+                                </div>
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label">Page Type</label>
+                                    <select id="meta-page-type" class="flux-seo-select">
+                                        <option value="website">Website</option>
+                                        <option value="article">Article</option>
+                                        <option value="product">Product</option>
+                                        <option value="service">Service</option>
+                                        <option value="blog">Blog Post</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flux-seo-form-actions">
+                                <button id="generate-meta-btn" class="flux-seo-btn flux-seo-btn-primary">
+                                    <span class="flux-seo-btn-icon">🌐</span>
+                                    <span class="flux-seo-btn-text">Generate Meta Tags</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="meta-results" class="flux-seo-results" style="display: none;">
+                            <div class="flux-seo-results-header">
+                                <h3>Generated Meta Tags</h3>
+                                <span class="flux-seo-ai-badge">Optimized with AI</span>
+                            </div>
+                            <div id="meta-display" class="flux-seo-meta-display">
+                                <div class="flux-seo-meta-preview">
+                                    <h4>Search Engine Preview</h4>
+                                    <div class="flux-seo-serp-preview">
+                                        <div class="flux-seo-serp-title" id="serp-title">Your Page Title</div>
+                                        <div class="flux-seo-serp-url" id="serp-url">https://yoursite.com/page</div>
+                                        <div class="flux-seo-serp-description" id="serp-description">Your meta description will appear here...</div>
+                                    </div>
+                                </div>
+                                <div class="flux-seo-meta-code">
+                                    <h4>HTML Meta Tags</h4>
+                                    <textarea id="meta-html-output" class="flux-seo-code-output" readonly></textarea>
+                                    <button class="flux-seo-btn flux-seo-btn-secondary" onclick="FluxSEOEnhanced.copyToClipboard('#meta-html-output')">
+                                        Copy HTML
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schema Markup Tab -->
+            <div id="schema-tab" class="flux-seo-tab-content">
+                <div class="flux-seo-card">
+                    <div class="flux-seo-card-header">
+                        <h2 class="flux-seo-card-title">
+                            <span class="flux-seo-card-icon">📋</span>
+                            <span data-key="schema">Schema Markup Generator</span>
+                        </h2>
+                        <p class="flux-seo-card-description">
+                            Generate structured data markup for better search engine understanding
+                        </p>
+                    </div>
+                    <div class="flux-seo-card-body">
+                        <div class="flux-seo-form">
+                            <div class="flux-seo-form-group">
+                                <label class="flux-seo-label">Schema Type</label>
+                                <select id="schema-type" class="flux-seo-select">
+                                    <option value="article">Article</option>
+                                    <option value="product">Product</option>
+                                    <option value="service">Service</option>
+                                    <option value="organization">Organization</option>
+                                    <option value="person">Person</option>
+                                    <option value="event">Event</option>
+                                    <option value="recipe">Recipe</option>
+                                    <option value="review">Review</option>
+                                    <option value="faq">FAQ</option>
+                                    <option value="breadcrumb">Breadcrumb</option>
+                                </select>
+                            </div>
+                            <div id="schema-fields" class="flux-seo-schema-fields">
+                                <!-- Dynamic fields based on schema type -->
+                            </div>
+                            <div class="flux-seo-form-actions">
+                                <button id="generate-schema-btn" class="flux-seo-btn flux-seo-btn-primary">
+                                    <span class="flux-seo-btn-icon">📋</span>
+                                    <span class="flux-seo-btn-text">Generate Schema</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="schema-results" class="flux-seo-results" style="display: none;">
+                            <div class="flux-seo-results-header">
+                                <h3>Generated Schema Markup</h3>
+                                <span class="flux-seo-ai-badge">JSON-LD Format</span>
+                            </div>
+                            <div id="schema-display" class="flux-seo-schema-display">
+                                <div class="flux-seo-schema-preview">
+                                    <h4>Rich Snippet Preview</h4>
+                                    <div id="rich-snippet-preview" class="flux-seo-rich-snippet">
+                                        <!-- Rich snippet preview will be generated here -->
+                                    </div>
+                                </div>
+                                <div class="flux-seo-schema-code">
+                                    <h4>JSON-LD Schema Code</h4>
+                                    <textarea id="schema-json-output" class="flux-seo-code-output" readonly></textarea>
+                                    <div class="flux-seo-code-actions">
+                                        <button class="flux-seo-btn flux-seo-btn-secondary" onclick="FluxSEOEnhanced.copyToClipboard('#schema-json-output')">
+                                            Copy JSON-LD
+                                        </button>
+                                        <button class="flux-seo-btn flux-seo-btn-secondary" onclick="FluxSEOEnhanced.validateSchema()">
+                                            Validate Schema
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical SEO Tab -->
+            <div id="technical-tab" class="flux-seo-tab-content">
+                <div class="flux-seo-card">
+                    <div class="flux-seo-card-header">
+                        <h2 class="flux-seo-card-title">
+                            <span class="flux-seo-card-icon">⚙️</span>
+                            <span data-key="technical">Technical SEO Audit</span>
+                        </h2>
+                        <p class="flux-seo-card-description">
+                            Comprehensive technical SEO analysis and optimization recommendations
+                        </p>
+                    </div>
+                    <div class="flux-seo-card-body">
+                        <div class="flux-seo-form">
+                            <div class="flux-seo-form-group">
+                                <label class="flux-seo-label">Website URL</label>
+                                <input type="url" id="technical-url" class="flux-seo-input" 
+                                       placeholder="https://yourwebsite.com">
+                            </div>
+                            <div class="flux-seo-form-row">
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label">Audit Type</label>
+                                    <select id="technical-audit-type" class="flux-seo-select">
+                                        <option value="full">Full Technical Audit</option>
+                                        <option value="performance">Performance Only</option>
+                                        <option value="security">Security Check</option>
+                                        <option value="mobile">Mobile Optimization</option>
+                                        <option value="crawlability">Crawlability</option>
+                                    </select>
+                                </div>
+                                <div class="flux-seo-form-group">
+                                    <label class="flux-seo-label">Depth</label>
+                                    <select id="technical-depth" class="flux-seo-select">
+                                        <option value="surface">Surface Level</option>
+                                        <option value="standard">Standard</option>
+                                        <option value="deep">Deep Analysis</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flux-seo-form-actions">
+                                <button id="run-technical-audit-btn" class="flux-seo-btn flux-seo-btn-primary">
+                                    <span class="flux-seo-btn-icon">⚙️</span>
+                                    <span class="flux-seo-btn-text">Run Technical Audit</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="technical-results" class="flux-seo-results" style="display: none;">
+                            <div class="flux-seo-results-header">
+                                <h3>Technical SEO Audit Results</h3>
+                                <span class="flux-seo-ai-badge">AI-Powered Analysis</span>
+                            </div>
+                            <div id="technical-display" class="flux-seo-technical-display">
+                                <div class="flux-seo-technical-overview">
+                                    <div class="flux-seo-technical-score">
+                                        <div class="flux-seo-score-circle">
+                                            <span id="technical-overall-score">--</span>
+                                        </div>
+                                        <div class="flux-seo-score-label">Overall Technical Score</div>
+                                    </div>
+                                    <div class="flux-seo-technical-metrics">
+                                        <div class="flux-seo-metric-item">
+                                            <span class="flux-seo-metric-name">Page Speed</span>
+                                            <span class="flux-seo-metric-value" id="tech-speed-score">--</span>
+                                        </div>
+                                        <div class="flux-seo-metric-item">
+                                            <span class="flux-seo-metric-name">Mobile Friendly</span>
+                                            <span class="flux-seo-metric-value" id="tech-mobile-score">--</span>
+                                        </div>
+                                        <div class="flux-seo-metric-item">
+                                            <span class="flux-seo-metric-name">Security</span>
+                                            <span class="flux-seo-metric-value" id="tech-security-score">--</span>
+                                        </div>
+                                        <div class="flux-seo-metric-item">
+                                            <span class="flux-seo-metric-name">Crawlability</span>
+                                            <span class="flux-seo-metric-value" id="tech-crawl-score">--</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="technical-issues" class="flux-seo-technical-issues">
+                                    <!-- Technical issues and recommendations will be displayed here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Chatbot Tab -->
+            <div id="chatbot-tab" class="flux-seo-tab-content">
+                <div class="flux-seo-card">
+                    <div class="flux-seo-card-header">
+                        <h2 class="flux-seo-card-title">
+                            <span class="flux-seo-card-icon">🤖</span>
+                            <span data-key="chatbot">SEO Assistant Chatbot</span>
+                        </h2>
+                    </div>
+                    <div class="flux-seo-card-body">
+                        <div class="flux-seo-chatbot-container">
+                            <div id="chatbot-messages" class="flux-seo-chatbot-messages">
+                                <!-- Messages will be dynamically added here -->
+                            </div>
+                            <div class="flux-seo-chatbot-input">
+                                <div class="flux-seo-input-container">
+                                    <textarea id="chatbot-input" class="flux-seo-chatbot-textarea" 
+                                              placeholder="Ask about SEO..." rows="2"></textarea>
+                                    <button id="send-message-btn" class="flux-seo-btn flux-seo-btn-primary" disabled>
+                                        <span class="flux-seo-btn-icon">📤</span>
+                                        <span class="flux-seo-btn-text">Send</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="settings-tab" class="flux-seo-tab-content">
+                <div class="flux-seo-card">
+                    <div class="flux-seo-card-header">
+                        <h2 class="flux-seo-card-title">
+                            <span class="flux-seo-card-icon">🔗</span>
+                            <span data-key="settings">API Key Management</span>
+                        </h2>
+                        <p class="flux-seo-card-description">
+                            Manage your Google Gemini API Key. This key is required for AI features to function.
+                        </p>
+                    </div>
+                    <div class="flux-seo-card-body">
+                        <div class="flux-seo-form">
+                            <div class="flux-seo-form-group">
+                                <label class="flux-seo-label">Google Gemini API Key</label>
+                                <div class="flux-seo-api-key-container">
+                                    <input type="password" id="gemini-api-key" class="flux-seo-input flux-seo-api-key-input" 
+                                           placeholder="Enter your API key here">
+                                    <button type="button" class="flux-seo-api-key-toggle" onclick="FluxSEOEnhanced.toggleApiKeyVisibility()">
+                                        👁️
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flux-seo-form-actions">
+                                <button id="save-api-key-btn" class="flux-seo-btn flux-seo-btn-primary">
+                                    Save API Key
+                                </button>
+                                <button id="clear-api-key-btn" class="flux-seo-btn flux-seo-btn-secondary">
+                                    Clear API Key
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="flux-seo-security-note">
+                            <div style="display: flex; align-items: flex-start; gap: 8px;">
+                                <span class="flux-seo-icon">⚠️</span>
+                                <div>
+                                    <strong>Security Note:</strong> Your API key is stored locally in your browser's local storage. While convenient, be cautious if using this on a shared computer. For optimal security, consider environment variables for development or server-side key management for production applications.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 24px;">
+                            <p><strong>Why is an API Key needed?</strong> The Gemini API requires an API key to authenticate requests and grant access to its generative AI models.</p>
+                            <p><strong>Where to get an API Key?</strong> You can obtain an API key from Google AI Studio after setting up your project.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features" class="demo-features">
+        <div class="demo-features-container">
+            <h2>🚀 Enhanced Features with Gemini AI</h2>
+            <p>Experience the next generation of SEO tools powered by Google Gemini 2.5 Pro</p>
+            
+            <div class="demo-features-grid">
+                <div class="demo-feature-card">
+                    <div class="demo-feature-icon">🤖</div>
+                    <div class="demo-feature-title">Google Gemini 2.5 Pro Integration</div>
+                    <div class="demo-feature-description">
+                        Advanced AI-powered content analysis, generation, and optimization using Google's latest Gemini 2.5 Pro model
+                    </div>
+                </div>
+                
+                <div class="demo-feature-card">
+                    <div class="demo-feature-icon">🌐</div>
+                    <div class="demo-feature-title">Thai/English Language Switching</div>
+                    <div class="demo-feature-description">
+                        Seamless language switching with real-time UI updates, proper Thai fonts, and culturally appropriate AI responses
+                    </div>
+                </div>
+                
+                <div class="demo-feature-card">
+                    <div class="demo-feature-icon">📊</div>
+                    <div class="demo-feature-title">Advanced Analytics Dashboard</div>
+                    <div class="demo-feature-description">
+                        Comprehensive website analysis with 10+ metrics including performance, security, accessibility, and user experience
+                    </div>
+                </div>
+                
+                <div class="demo-feature-card">
+                    <div class="demo-feature-icon">🎯</div>
+                    <div class="demo-feature-title">AI Keyword Research</div>
+                    <div class="demo-feature-description">
+                        Intelligent keyword discovery with scoring, competition analysis, and content ideas powered by AI
+                    </div>
+                </div>
+                
+                <div class="demo-feature-card">
+                    <div class="demo-feature-icon">✨</div>
+                    <div class="demo-feature-title">Smart Content Generation</div>
+                    <div class="demo-feature-description">
+                        Generate high-quality blog posts, articles, and guides with customizable tone, audience, and word count
+                    </div>
+                </div>
+                
+                <div class="demo-feature-card">
+                    <div class="demo-feature-icon">⚡</div>
+                    <div class="demo-feature-title">SEO Optimization Engine</div>
+                    <div class="demo-feature-description">
+                        AI-powered content optimization with actionable recommendations for better search engine rankings
+                    </div>
+                </div>
+                
+                <div class="demo-feature-card">
+                    <div class="demo-feature-icon">💾</div>
+                    <div class="demo-feature-title">Enhanced Data Storage</div>
+                    <div class="demo-feature-description">
+                        Comprehensive database storage for analytics, generated content, and performance tracking
+                    </div>
+                </div>
+                
+                <div class="demo-feature-card">
+                    <div class="demo-feature-icon">📱</div>
+                    <div class="demo-feature-title">Mobile-First Design</div>
+                    <div class="demo-feature-description">
+                        Fully responsive interface that works perfectly on desktop, tablet, and mobile devices
+                    </div>
+                </div>
+            </div>
+            
+            <div class="demo-cta">
+                <h3>Ready to Experience AI-Powered SEO?</h3>
+                <p>Try the language switcher above and explore all the enhanced features!</p>
+                <div class="demo-cta-buttons">
+                    <button onclick="document.getElementById('flux-seo-language-select').value='th'; document.getElementById('flux-seo-language-select').dispatchEvent(new Event('change'));" 
+                            class="demo-btn">
+                        🇹🇭 Switch to Thai
+                    </button>
+                    <button onclick="document.getElementById('flux-seo-language-select').value='en'; document.getElementById('flux-seo-language-select').dispatchEvent(new Event('change'));" 
+                            class="demo-btn">
+                        🇺🇸 Switch to English
+                    </button>
+                    <button onclick="window.FluxSEOEnhanced.showTab('generator')" class="demo-btn">
+                        ✨ Try AI Generator
+                    </button>
+                    <button onclick="window.FluxSEOEnhanced.showTab('analytics')" class="demo-btn">
+                        📊 View Analytics
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock data for demo with enhanced features
+        window.fluxSeoEnhanced = {
+            ajaxurl: '#',
+            nonce: 'demo-nonce',
+            geminiEnabled: true,
+            strings: {
+                en: {
+                    title: 'Flux SEO Enhanced with Gemini AI',
+                    subtitle: 'Professional SEO optimization powered by Google Gemini 2.5 Pro',
+                    languageSelector: 'Language',
+                    contentAnalyzer: 'AI Content Analyzer',
+                    blogGenerator: 'AI Blog Generator',
+                    advancedAnalytics: 'Advanced Analytics',
+                    seoOptimizer: 'SEO Optimizer',
+                    keywordResearch: 'AI Keyword Research',
+                    analyze: 'Analyze with Gemini AI',
+                    generate: 'Generate with AI',
+                    optimize: 'Optimize with AI',
+                    analyzing: 'Gemini AI is analyzing...',
+                    generating: 'Gemini AI is generating...',
+                    optimizing: 'AI is optimizing...',
+                    seoScore: 'SEO Score',
+                    contentQuality: 'Content Quality',
+                    readability: 'Readability',
+                    engagement: 'Engagement',
+                    geminiInsights: 'Gemini AI Insights',
+                    recommendations: 'AI Recommendations',
+                    topic: 'Topic',
+                    contentType: 'Content Type',
+                    tone: 'Tone',
+                    targetAudience: 'Target Audience',
+                    keywords: 'Keywords',
+                    wordCount: 'Word Count',
+                    websiteUrl: 'Website URL',
+                    blogPost: 'Blog Post',
+                    article: 'Article',
+                    guide: 'How-to Guide',
+                    review: 'Review',
+                    tutorial: 'Tutorial',
+                    professional: 'Professional',
+                    casual: 'Casual',
+                    formal: 'Formal',
+                    conversational: 'Conversational',
+                    technical: 'Technical',
+                    general: 'General Audience',
+                    business: 'Business Professionals',
+                    students: 'Students',
+                    experts: 'Industry Experts',
+                    consumers: 'Consumers',
+                    poweredByGemini: 'Powered by Google Gemini 2.5 Pro',
+                    overallScore: 'Overall Score',
+                    performance: 'Performance',
+                    pageSpeed: 'Page Speed',
+                    mobileScore: 'Mobile Score',
+                    userExperience: 'User Experience',
+                    technicalScore: 'Technical SEO',
+                    security: 'Security',
+                    accessibility: 'Accessibility',
+                    enterContent: 'Please enter content to analyze',
+                    enterTopic: 'Please enter a topic',
+                    enterUrl: 'Please enter a website URL',
+                    contentCopied: 'Content copied to clipboard!',
+                    error: 'An error occurred. Please try again.'
+                },
+                th: {
+                    title: 'Flux SEO Enhanced ด้วย Gemini AI',
+                    subtitle: 'เครื่องมือ SEO มืออาชีพขับเคลื่อนด้วย Google Gemini 2.5 Pro',
+                    languageSelector: 'ภาษา',
+                    contentAnalyzer: 'วิเคราะห์เนื้อหาด้วย AI',
+                    blogGenerator: 'สร้างบล็อกด้วย AI',
+                    advancedAnalytics: 'การวิเคราะห์ขั้นสูง',
+                    seoOptimizer: 'ปรับปรุง SEO',
+                    keywordResearch: 'วิจัยคำหลักด้วย AI',
+                    analyze: 'วิเคราะห์ด้วย Gemini AI',
+                    generate: 'สร้างด้วย AI',
+                    optimize: 'ปรับปรุงด้วย AI',
+                    analyzing: 'Gemini AI กำลังวิเคราะห์...',
+                    generating: 'Gemini AI กำลังสร้าง...',
+                    optimizing: 'AI กำลังปรับปรุง...',
+                    seoScore: 'คะแนน SEO',
+                    contentQuality: 'คุณภาพเนื้อหา',
+                    readability: 'ความเข้าใจง่าย',
+                    engagement: 'การมีส่วนร่วม',
+                    geminiInsights: 'ข้อมูลเชิงลึกจาก Gemini AI',
+                    recommendations: 'คำแนะนำจาก AI',
+                    topic: 'หัวข้อ',
+                    contentType: 'ประเภทเนื้อหา',
+                    tone: 'โทนเสียง',
+                    targetAudience: 'กลุ่มเป้าหมาย',
+                    keywords: 'คำหลัก',
+                    wordCount: 'จำนวนคำ',
+                    websiteUrl: 'URL เว็บไซต์',
+                    blogPost: 'บล็อกโพสต์',
+                    article: 'บทความ',
+                    guide: 'คู่มือวิธีทำ',
+                    review: 'รีวิว',
+                    tutorial: 'บทเรียน',
+                    professional: 'มืออาชีพ',
+                    casual: 'เป็นกันเอง',
+                    formal: 'เป็นทางการ',
+                    conversational: 'สนทนา',
+                    technical: 'เชิงเทคนิค',
+                    general: 'ผู้อ่านทั่วไป',
+                    business: 'นักธุรกิจ',
+                    students: 'นักเรียน นักศึกษา',
+                    experts: 'ผู้เชี่ยวชาญ',
+                    consumers: 'ผู้บริโภค',
+                    poweredByGemini: 'ขับเคลื่อนโดย Google Gemini 2.5 Pro',
+                    overallScore: 'คะแนนรวม',
+                    performance: 'ประสิทธิภาพ',
+                    pageSpeed: 'ความเร็วหน้าเว็บ',
+                    mobileScore: 'คะแนนมือถือ',
+                    userExperience: 'ประสบการณ์ผู้ใช้',
+                    technicalScore: 'SEO เชิงเทคนิค',
+                    security: 'ความปลอดภัย',
+                    accessibility: 'การเข้าถึง',
+                    enterContent: 'กรุณาใส่เนื้อหาที่ต้องการวิเคราะห์',
+                    enterTopic: 'กรุณาใส่หัวข้อ',
+                    enterUrl: 'กรุณาใส่ URL เว็บไซต์',
+                    contentCopied: 'คัดลอกเนื้อหาแล้ว!',
+                    error: 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง'
+                }
+            }
+        };
+    </script>
+    <script src="flux-seo-enhanced-gemini.js"></script>
+    
+    <script>
+        // Enhanced demo functionality with Gemini AI simulation
+        $(document).ready(function() {
+            // Override AJAX calls for demo with enhanced responses
+            $('#analyze-btn').click(function(e) {
+                e.preventDefault();
+                const content = $('#analyzer-content').val();
+                if (!content.trim()) {
+                    window.FluxSEOEnhanced.showNotification(
+                        window.FluxSEOEnhanced.getString('enterContent'), 
+                        'error'
+                    );
+                    return;
+                }
+                
+                window.FluxSEOEnhanced.setLoading('#analyze-btn', true);
+                
+                setTimeout(() => {
+                    const mockData = {
+                        seo_score: Math.floor(Math.random() * 20) + 80,
+                        content_quality_score: Math.floor(Math.random() * 15) + 85,
+                        readability_score: Math.floor(Math.random() * 20) + 75,
+                        engagement_score: Math.floor(Math.random() * 15) + 80,
+                        analysis: window.FluxSEOEnhanced.currentLanguage === 'th' ? 
+                            'เนื้อหามีคุณภาพดีและมีโครงสร้างที่ชัดเจน การใช้คำหลักเหมาะสม แต่ยังสามารถปรับปรุงได้ในด้านการเพิ่มความน่าสนใจและการโต้ตอบกับผู้อ่าน' :
+                            'Content has good quality and clear structure. Keyword usage is appropriate, but can be improved in terms of engagement and reader interaction.',
+                        recommendations: window.FluxSEOEnhanced.currentLanguage === 'th' ? [
+                            'เพิ่มหัวข้อย่อยเพื่อแบ่งเนื้อหาให้ชัดเจนขึ้น',
+                            'ใช้คำหลักที่เกี่ยวข้องมากขึ้นอย่างเป็นธรรมชาติ',
+                            'เพิ่มลิงก์ภายในไปยังเนื้อหาที่เกี่ยวข้อง',
+                            'ปรับปรุงความยาวของประโยคให้เหมาะสมกับการอ่าน',
+                            'เพิ่มรูปภาพและกราฟิกเพื่อเสริมความเข้าใจ',
+                            'สร้าง call-to-action ที่ชัดเจนและน่าสนใจ'
+                        ] : [
+                            'Add more subheadings to improve content structure',
+                            'Include more relevant keywords naturally',
+                            'Add internal links to related content',
+                            'Improve sentence length for better readability',
+                            'Add images and graphics to enhance understanding',
+                            'Create clear and engaging call-to-action elements'
+                        ]
+                    };
+                    
+                    window.FluxSEOEnhanced.displayAnalysisResults(mockData);
+                    window.FluxSEOEnhanced.setLoading('#analyze-btn', false);
+                }, 2000);
+            });
+            
+            $('#generate-btn').click(function(e) {
+                e.preventDefault();
+                const topic = $('#generator-topic').val();
+                if (!topic.trim()) {
+                    window.FluxSEOEnhanced.showNotification(
+                        window.FluxSEOEnhanced.getString('enterTopic'), 
+                        'error'
+                    );
+                    return;
+                }
+                
+                window.FluxSEOEnhanced.setLoading('#generate-btn', true);
+                
+                setTimeout(() => {
+                    const isThaiMode = window.FluxSEOEnhanced.currentLanguage === 'th';
+                    const mockData = {
+                        title: isThaiMode ? 
+                            `${topic}: คู่มือฉบับสมบูรณ์ด้วย AI สำหรับปี 2024` :
+                            `The Complete AI-Powered Guide to ${topic} 2024`,
+                        meta_description: isThaiMode ?
+                            `เรียนรู้เกี่ยวกับ ${topic} อย่างครบถ้วนด้วยเทคโนโลยี AI และเทคนิคที่ได้ผลจริง ✓ อัพเดทล่าสุด 2024` :
+                            `Discover everything about ${topic} with AI technology and proven techniques ✓ Latest 2024 update`,
+                        content: isThaiMode ?
+                            `# ${topic}: คู่มือฉบับสมบูรณ์ด้วย AI
+
+ในยุคดิจิทัลที่เปลี่ยนแปลงอย่างรวดเร็วนี้ ${topic} ได้กลายเป็นสิ่งที่สำคัญมากขึ้นเรื่อยๆ สำหรับคนไทยที่ต้องการก้าวทันโลกและสร้างความสำเร็จ
+
+## ความสำคัญของ ${topic}
+
+${topic} มีบทบาทสำคัญในการขับเคลื่อนการเปลี่ยนแปลงและพัฒนาในหลายๆ ด้าน การเข้าใจและประยุกต์ใช้อย่างถูกต้องจะช่วยให้เราสามารถปรับตัวและเติบโตได้อย่างมีประสิทธิภาพ
+
+## การประยุกต์ใช้ในปัจจุบัน
+
+การนำ ${topic} มาใช้ในการทำงานต้องอาศัยความเข้าใจที่ถูกต้องและการวางแผนที่ดี เริ่มต้นจากการศึกษาหาข้อมูลที่เชื่อถือได้ จากนั้นทดลองประยุกต์ใช้ในขอบเขตเล็กๆ ก่อน
+
+## สรุป
+
+${topic} เป็นเรื่องที่น่าสนใจและมีประโยชน์มากสำหรับเราทุกคน การเรียนรู้และประยุกต์ใช้อย่างถูกวิธีจะช่วยให้เราก้าวไปข้างหน้าได้อย่างมั่นใจ` :
+                            
+                            `# The Complete AI-Powered Guide to ${topic}
+
+In today's rapidly evolving digital landscape, ${topic} has become increasingly important for businesses and individuals looking to stay competitive and achieve success.
+
+## Understanding ${topic}
+
+${topic} plays a crucial role in driving change and development across multiple sectors. Understanding and properly implementing strategies can help organizations adapt and grow efficiently.
+
+## Current Applications
+
+Implementing ${topic} in your workflow requires proper understanding and strategic planning. Start by researching reliable sources, then experiment with small-scale applications.
+
+## Conclusion
+
+${topic} is a fascinating and highly beneficial area that everyone should explore. Learning and applying the right strategies will help you move forward confidently.`,
+                        outline: isThaiMode ? [
+                            `บทนำ: ความสำคัญของ ${topic}`,
+                            `ความเข้าใจพื้นฐานเกี่ยวกับ ${topic}`,
+                            `การประยุกต์ใช้ในปัจจุบัน`,
+                            `เทคนิคและกลยุทธ์ที่มีประสิทธิภาพ`,
+                            `ตัวอย่างการใช้งานจริง`,
+                            `แนวโน้มและอนาคต`,
+                            `สรุปและข้อเสนอแนะ`
+                        ] : [
+                            `Introduction: The Importance of ${topic}`,
+                            `Understanding the Fundamentals`,
+                            `Current Applications`,
+                            `Effective Techniques and Strategies`,
+                            `Real-World Examples`,
+                            `Future Trends`,
+                            `Conclusion and Recommendations`
+                        ],
+                        keywords_used: ['AI', 'SEO', topic, 'digital marketing', 'technology'],
+                        seo_score: Math.floor(Math.random() * 10) + 90,
+                        readability_score: Math.floor(Math.random() * 10) + 85,
+                        engagement_score: Math.floor(Math.random() * 15) + 80
+                    };
+                    
+                    window.FluxSEOEnhanced.displayGenerationResults(mockData);
+                    window.FluxSEOEnhanced.setLoading('#generate-btn', false);
+                }, 3000);
+            });
+            
+            $('#analyze-website-btn').click(function(e) {
+                e.preventDefault();
+                const url = $('#analytics-url').val();
+                if (!url.trim()) {
+                    window.FluxSEOEnhanced.showNotification(
+                        window.FluxSEOEnhanced.getString('enterUrl'), 
+                        'error'
+                    );
+                    return;
+                }
+                
+                window.FluxSEOEnhanced.setLoading('#analyze-website-btn', true);
+                
+                setTimeout(() => {
+                    const mockData = {
+                        overall_score: Math.floor(Math.random() * 15) + 85,
+                        seo_score: Math.floor(Math.random() * 20) + 75,
+                        performance_score: Math.floor(Math.random() * 15) + 80,
+                        content_quality_score: Math.floor(Math.random() * 10) + 85,
+                        technical_seo_score: Math.floor(Math.random() * 20) + 70,
+                        user_experience_score: Math.floor(Math.random() * 15) + 80,
+                        mobile_score: Math.floor(Math.random() * 10) + 85,
+                        page_speed_score: Math.floor(Math.random() * 20) + 75,
+                        security_score: Math.floor(Math.random() * 5) + 95,
+                        accessibility_score: Math.floor(Math.random() * 20) + 70,
+                        recommendations: window.FluxSEOEnhanced.currentLanguage === 'th' ? [
+                            'ปรับปรุงความเร็วในการโหลดหน้าเว็บด้วยการบีบอัดรูปภาพ',
+                            'เพิ่มคำหลักที่เกี่ยวข้องในเนื้อหาอย่างเป็นธรรมชาติ',
+                            'ปรับปรุงโครงสร้างหัวข้อให้มีลำดับชั้นที่ชัดเจน',
+                            'เพิ่มลิงก์ภายในเพื่อเชื่อมโยงเนื้อหาที่เกี่ยวข้อง',
+                            'เพิ่ม structured data สำหรับ rich snippets',
+                            'ปรับปรุงการแสดงผลบนมือถือให้สมบูรณ์',
+                            'เพิ่มเนื้อหาที่มีคุณภาพและเป็นประโยชน์',
+                            'ปรับปรุง meta descriptions ให้น่าสนใจมากขึ้น'
+                        ] : [
+                            'Improve page loading speed with image compression',
+                            'Add more relevant keywords naturally in content',
+                            'Improve heading structure with clear hierarchy',
+                            'Add internal links to connect related content',
+                            'Add structured data for rich snippets',
+                            'Improve mobile responsiveness completely',
+                            'Add high-quality and valuable content',
+                            'Improve meta descriptions to be more engaging'
+                        ]
+                    };
+                    
+                    window.FluxSEOEnhanced.displayAnalyticsResults(mockData);
+                    window.FluxSEOEnhanced.setLoading('#analyze-website-btn', false);
+                }, 2500);
+            });
+            
+            $('#optimize-btn').click(function(e) {
+                e.preventDefault();
+                const content = $('#optimizer-content').val();
+                if (!content.trim()) {
+                    window.FluxSEOEnhanced.showNotification(
+                        window.FluxSEOEnhanced.getString('enterContent'), 
+                        'error'
+                    );
+                    return;
+                }
+                
+                window.FluxSEOEnhanced.setLoading('#optimize-btn', true);
+                
+                setTimeout(() => {
+                    const keywords = $('#optimizer-keywords').val() || 'SEO optimization';
+                    const mockData = {
+                        optimized_title: window.FluxSEOEnhanced.currentLanguage === 'th' ? 
+                            `ปรับปรุงแล้ว: ${keywords} - คู่มือฉบับสมบูรณ์ 2024` :
+                            `Optimized: Complete Guide to ${keywords} 2024`,
+                        optimized_meta: window.FluxSEOEnhanced.currentLanguage === 'th' ? 
+                            `เรียนรู้เกี่ยวกับ ${keywords} อย่างครบถ้วน พร้อมเทคนิคและแนวทางที่ได้ผลจริง ✓ คู่มือล่าสุด 2024` :
+                            `Learn everything about ${keywords} with proven techniques and strategies ✓ Latest 2024 guide`,
+                        optimization_tips: window.FluxSEOEnhanced.currentLanguage === 'th' ? [
+                            'เพิ่มคำหลักในหัวข้อหลักและหัวข้อย่อย',
+                            'ใช้คำหลักในย่อหน้าแรกและย่อหน้าสุดท้าย',
+                            'เพิ่มลิงก์ภายในที่เกี่ยวข้อง',
+                            'ปรับปรุงโครงสร้างเนื้อหาให้ชัดเจน',
+                            'เพิ่ม schema markup ที่เหมาะสม'
+                        ] : [
+                            'Include keywords in main headings and subheadings',
+                            'Use keywords in first and last paragraphs',
+                            'Add relevant internal links',
+                            'Improve content structure for clarity',
+                            'Add appropriate schema markup'
+                        ],
+                        structure_improvements: window.FluxSEOEnhanced.currentLanguage === 'th' ? [
+                            'เพิ่มสารบัญในตอนต้น',
+                            'แบ่งเนื้อหาเป็นหัวข้อย่อยที่ชัดเจน',
+                            'เพิ่มสรุปในตอนท้าย',
+                            'ใช้ bullet points และ numbered lists',
+                            'เพิ่ม FAQ section'
+                        ] : [
+                            'Add table of contents at the beginning',
+                            'Divide content into clear subsections',
+                            'Add summary at the end',
+                            'Use bullet points and numbered lists',
+                            'Add FAQ section'
+                        ]
+                    };
+                    
+                    window.FluxSEOEnhanced.displayOptimizationResults(mockData);
+                    window.FluxSEOEnhanced.setLoading('#optimize-btn', false);
+                }, 2000);
+            });
+            
+            $('#research-keywords-btn').click(function(e) {
+                e.preventDefault();
+                const seeds = $('#keyword-seeds').val();
+                if (!seeds.trim()) {
+                    window.FluxSEOEnhanced.showNotification(
+                        window.FluxSEOEnhanced.currentLanguage === 'th' ? 
+                        'กรุณาใส่คำหลักที่ต้องการวิจัย' : 
+                        'Please enter keywords to research', 
+                        'error'
+                    );
+                    return;
+                }
+                
+                window.FluxSEOEnhanced.setLoading('#research-keywords-btn', true);
+                
+                setTimeout(() => {
+                    const mockData = {
+                        primary_keywords: [
+                            { keyword: seeds, search_volume: Math.floor(Math.random() * 5000) + 1000, difficulty: Math.floor(Math.random() * 50) + 30, intent: 'informational' },
+                            { keyword: seeds + ' guide', search_volume: Math.floor(Math.random() * 3000) + 500, difficulty: Math.floor(Math.random() * 40) + 40, intent: 'informational' },
+                            { keyword: 'best ' + seeds, search_volume: Math.floor(Math.random() * 2000) + 300, difficulty: Math.floor(Math.random() * 60) + 50, intent: 'commercial' }
+                        ],
+                        long_tail_keywords: window.FluxSEOEnhanced.currentLanguage === 'th' ? [
+                            seeds + ' คือ',
+                            seeds + ' ประโยชน์',
+                            seeds + ' วิธีการ',
+                            seeds + ' เทคนิค',
+                            seeds + ' สำหรับคนไทย'
+                        ] : [
+                            'what is ' + seeds,
+                            'how to ' + seeds,
+                            seeds + ' best practices',
+                            seeds + ' guide 2024',
+                            seeds + ' for beginners'
+                        ],
+                        content_ideas: window.FluxSEOEnhanced.currentLanguage === 'th' ? [
+                            'คู่มือ ' + seeds + ' ฉบับสมบูรณ์',
+                            'เทคนิค ' + seeds + ' ที่ได้ผลจริง',
+                            'ข้อผิดพลาดใน ' + seeds + ' ที่ควรหลีกเลี่ยง',
+                            'แนวโน้ม ' + seeds + ' ในอนาคต'
+                        ] : [
+                            'Complete guide to ' + seeds,
+                            'Proven ' + seeds + ' techniques',
+                            'Common ' + seeds + ' mistakes to avoid',
+                            'Future trends in ' + seeds
+                        ]
+                    };
+                    
+                    window.FluxSEOEnhanced.displayKeywordResults(mockData);
+                    window.FluxSEOEnhanced.setLoading('#research-keywords-btn', false);
+                }, 2500);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+/**
+ * WordPress-specific CSS overrides for Flux SEO Scribe Craft
+ * This file contains styles to ensure proper integration with WordPress themes and admin
+ */
+
+/* Container styles */
+.flux-seo-container {
+    position: relative;
+    z-index: 1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    min-height: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* React App styles */
+.flux-seo-app {
+    height: 100%;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Reset WordPress admin styles that might interfere */
+.flux-seo-container * {
+    box-sizing: border-box;
+}
+
+.flux-seo-container button,
+.flux-seo-container .button {
+    font-family: inherit !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+}
+
+.flux-seo-container input,
+.flux-seo-container textarea,
+.flux-seo-container select {
+    font-family: inherit !important;
+    border-radius: 4px !important;
+}
+
+/* Ensure proper spacing in WordPress admin */
+.wp-admin .flux-seo-container {
+    margin: 20px 0;
+}
+
+/* Shortcode container styles */
+.flux-seo-shortcode-container {
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+/* Admin page specific styles */
+.flux-seo-admin-page {
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Loading state */
+.flux-seo-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 8px;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.flux-seo-loading .loading-content {
+    max-width: 400px;
+}
+
+.flux-seo-loading h3 {
+    font-size: 24px;
+    color: #333;
+    margin: 0 0 15px 0;
+    animation: pulse 2s infinite;
+}
+
+.flux-seo-loading p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+    opacity: 0.8;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Error state */
+.flux-seo-error {
+    background: #fff;
+    border: 1px solid #dc3232;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 20px 0;
+    color: #dc3232;
+}
+
+.flux-seo-error h3 {
+    margin-top: 0;
+    color: #dc3232;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .flux-seo-container {
+        margin: 10px 0;
+    }
+    
+    .wp-admin .flux-seo-container {
+        margin: 10px 0;
+    }
+}
+
+/* WordPress theme compatibility */
+.flux-seo-container h1,
+.flux-seo-container h2,
+.flux-seo-container h3,
+.flux-seo-container h4,
+.flux-seo-container h5,
+.flux-seo-container h6 {
+    font-family: inherit;
+    line-height: 1.3;
+    margin: 0 0 15px 0;
+}
+
+.flux-seo-container p {
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+}
+
+.flux-seo-container a {
+    color: #0073aa;
+    text-decoration: none;
+}
+
+.flux-seo-container a:hover {
+    color: #005177;
+    text-decoration: underline;
+}
+
+/* Ensure proper z-index for modals and overlays */
+.flux-seo-container .modal,
+.flux-seo-container .overlay,
+.flux-seo-container .dropdown {
+    z-index: 999999;
+}
+
+/* WordPress admin bar compatibility */
+@media screen and (max-width: 782px) {
+    .admin-bar .flux-seo-container {
+        margin-top: 46px;
+    }
+}
+
+@media screen and (min-width: 783px) {
+    .admin-bar .flux-seo-container {
+        margin-top: 32px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .flux-seo-container {
+        background: white !important;
+        color: black !important;
+    }
+}

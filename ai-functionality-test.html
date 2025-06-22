@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Functionality Test - Flux SEO Enhanced</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&family=Kanit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="flux-seo-enhanced-gemini.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .ai-test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .ai-test-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .ai-test-section {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .ai-test-section-header {
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .ai-test-section-body {
+            padding: 20px;
+        }
+        
+        .ai-test-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .ai-test-item:last-child {
+            border-bottom: none;
+        }
+        
+        .ai-test-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .ai-test-status.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .ai-test-status.testing {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .ai-test-status.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .ai-test-status.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .ai-test-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        
+        .ai-test-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .ai-test-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .ai-test-results {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+            display: none;
+        }
+        
+        .ai-test-summary {
+            background: #1e293b;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .ai-test-progress {
+            background: #e5e7eb;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .ai-test-progress-bar {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="ai-test-container">
+        <div class="ai-test-header">
+            <h1>🤖 AI Functionality Test Suite</h1>
+            <p>Comprehensive testing of all Gemini AI integrations in Flux SEO Enhanced</p>
+            <div class="ai-test-progress">
+                <div class="ai-test-progress-bar" id="overall-progress"></div>
+            </div>
+            <p id="progress-text">0/15 AI functions tested</p>
+        </div>
+        
+        <!-- API Key Setup -->
+        <div class="ai-test-section">
+            <div class="ai-test-section-header">
+                🔑 API Key Configuration
+            </div>
+            <div class="ai-test-section-body">
+                <div style="margin-bottom: 15px;">
+                    <label for="test-api-key" style="display: block; margin-bottom: 5px; font-weight: 500;">Google Gemini API Key:</label>
+                    <input type="password" id="test-api-key" placeholder="Enter your Gemini API key" style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px;">
+                </div>
+                <button class="ai-test-button" onclick="setTestApiKey()">Set API Key</button>
+                <div id="api-key-status" class="ai-test-status pending">Not Set</div>
+            </div>
+        </div>
+        
+        <!-- Content Analysis Tests -->
+        <div class="ai-test-section">
+            <div class="ai-test-section-header">
+                🔍 Content Analysis AI Functions
+            </div>
+            <div class="ai-test-section-body">
+                <div class="ai-test-item">
+                    <span>Content Analyzer</span>
+                    <div>
+                        <button class="ai-test-button" onclick="testContentAnalyzer()">Test</button>
+                        <span id="analyzer-status" class="ai-test-status pending">Pending</span>
+                    </div>
+                </div>
+                <div class="ai-test-item">
+                    <span>Blog Generator</span>
+                    <div>
+                        <button class="ai-test-button" onclick="testBlogGenerator()">Test</button>
+                        <span id="generator-status" class="ai-test-status pending">Pending</span>
+                    </div>
+                </div>
+                <div class="ai-test-item">
+                    <span>Keyword Research</span>
+                    <div>
+                        <button class="ai-test-button" onclick="testKeywordResearch()">Test</button>
+                        <span id="keywords-status" class="ai-test-status pending">Pending</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Meta & Schema Tests -->
+        <div class="ai-test-section">
+            <div class="ai-test-section-header">
+                🌐 Meta Tags & Schema AI Functions
+            </div>
+            <div class="ai-test-section-body">
+                <div class="ai-test-item">
+                    <span>Meta Tags Generator</span>
+                    <div>
+                        <button class="ai-test-button" onclick="testMetaGenerator()">Test</button>
+                        <span id="meta-status" class="ai-test-status pending">Pending</span>
+                    </div>
+                </div>
+                <div class="ai-test-item">
+                    <span>Schema Markup Generator</span>
+                    <div>
+                        <button class="ai-test-button" onclick="testSchemaGenerator()">Test</button>
+                        <span id="schema-status" class="ai-test-status pending">Pending</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technical SEO Tests -->
+        <div class="ai-test-section">
+            <div class="ai-test-section-header">
+                ⚙️ Technical SEO AI Functions
+            </div>
+            <div class="ai-test-section-body">
+                <div class="ai-test-item">
+                    <span>Technical Audit</span>
+                    <div>
+                        <button class="ai-test-button" onclick="testTechnicalAudit()">Test</button>
+                        <span id="technical-status" class="ai-test-status pending">Pending</span>
+                    </div>
+                </div>
+                <div class="ai-test-item">
+                    <span>Chatbot Assistant</span>
+                    <div>
+                        <button class="ai-test-button" onclick="testChatbot()">Test</button>
+                        <span id="chatbot-status" class="ai-test-status pending">Pending</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Analytics AI Tests -->
+        <div class="ai-test-section">
+            <div class="ai-test-section-header">
+                📊 Analytics AI Functions
+            </div>
+            <div class="ai-test-section-body">
+                <div class="ai-test-item">
+                    <span>Goals Analysis</span>
+                    <div>
+                        <button class="ai-test-button" onclick="testGoalsAnalysis()">Test</button>
+                        <span id="goals-status" class="ai-test-status pending">Pending</span>
+                    </div>
+                </div>
+                <div class="ai-test-item">
+                    <span>Keywords Analysis</span>
+                    <div>
+                        <button class="ai-test-button" onclick="testKeywordsAnalysis()">Test</button>
+                        <span id="keywords-analysis-status" class="ai-test-status pending">Pending</span>
+                    </div>
+                </div>
+                <div class="ai-test-item">
+                    <span>Backlinks Analysis</span>
+                    <div>
+                        <button class="ai-test-button" onclick="testBacklinksAnalysis()">Test</button>
+                        <span id="backlinks-status" class="ai-test-status pending">Pending</span>
+                    </div>
+                </div>
+                <div class="ai-test-item">
+                    <span>Content Strategy</span>
+                    <div>
+                        <button class="ai-test-button" onclick="testContentStrategy()">Test</button>
+                        <span id="content-strategy-status" class="ai-test-status pending">Pending</span>
+                    </div>
+                </div>
+                <div class="ai-test-item">
+                    <span>Performance Report</span>
+                    <div>
+                        <button class="ai-test-button" onclick="testPerformanceReport()">Test</button>
+                        <span id="report-status" class="ai-test-status pending">Pending</span>
+                    </div>
+                </div>
+                <div class="ai-test-item">
+                    <span>Monitoring Setup</span>
+                    <div>
+                        <button class="ai-test-button" onclick="testMonitoringSetup()">Test</button>
+                        <span id="monitoring-status" class="ai-test-status pending">Pending</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Test Results -->
+        <div id="test-results" class="ai-test-results">
+            <h4>Test Results:</h4>
+            <div id="results-content"></div>
+        </div>
+        
+        <!-- Summary -->
+        <div class="ai-test-summary">
+            <h3>Test Summary</h3>
+            <p id="summary-text">Ready to test AI functionality</p>
+            <button class="ai-test-button" onclick="runAllTests()" style="margin-top: 15px; padding: 12px 24px; font-size: 16px;">
+                🚀 Run All Tests
+            </button>
+        </div>
+    </div>
+
+    <script src="flux-seo-enhanced-gemini.js"></script>
+    <script>
+        let testResults = {};
+        let totalTests = 15;
+        let completedTests = 0;
+        
+        function setTestApiKey() {
+            const apiKey = document.getElementById('test-api-key').value;
+            if (!apiKey) {
+                alert('Please enter an API key');
+                return;
+            }
+            
+            localStorage.setItem('flux_seo_gemini_api_key', apiKey);
+            document.getElementById('api-key-status').textContent = 'Set';
+            document.getElementById('api-key-status').className = 'ai-test-status success';
+            
+            // Enable all test buttons
+            document.querySelectorAll('.ai-test-button').forEach(btn => {
+                if (btn.textContent === 'Test') {
+                    btn.disabled = false;
+                }
+            });
+        }
+        
+        function updateProgress() {
+            const percentage = (completedTests / totalTests) * 100;
+            document.getElementById('overall-progress').style.width = percentage + '%';
+            document.getElementById('progress-text').textContent = `${completedTests}/${totalTests} AI functions tested`;
+            
+            if (completedTests === totalTests) {
+                const successCount = Object.values(testResults).filter(r => r.success).length;
+                document.getElementById('summary-text').innerHTML = 
+                    `Testing Complete! ${successCount}/${totalTests} AI functions working properly.`;
+            }
+        }
+        
+        function setTestStatus(testId, status, message = '') {
+            const statusElement = document.getElementById(testId + '-status');
+            statusElement.className = `ai-test-status ${status}`;
+            statusElement.textContent = status === 'testing' ? 'Testing...' : 
+                                      status === 'success' ? 'Success' : 
+                                      status === 'error' ? 'Error' : 'Pending';
+            
+            if (status !== 'testing') {
+                testResults[testId] = { success: status === 'success', message };
+                completedTests++;
+                updateProgress();
+                
+                if (message) {
+                    showTestResult(testId, message);
+                }
+            }
+        }
+        
+        function showTestResult(testId, message) {
+            const resultsDiv = document.getElementById('test-results');
+            const contentDiv = document.getElementById('results-content');
+            
+            contentDiv.innerHTML += `<div style="margin-bottom: 10px;"><strong>${testId}:</strong> ${message}</div>`;
+            resultsDiv.style.display = 'block';
+        }
+        
+        // Test Functions
+        async function testContentAnalyzer() {
+            setTestStatus('analyzer', 'testing');
+            try {
+                const response = await FluxSEOEnhanced.callGeminiAPI('Test content analysis prompt', 'content_analysis');
+                setTestStatus('analyzer', 'success', 'Content analyzer working correctly');
+            } catch (error) {
+                setTestStatus('analyzer', 'error', error.message);
+            }
+        }
+        
+        async function testBlogGenerator() {
+            setTestStatus('generator', 'testing');
+            try {
+                const response = await FluxSEOEnhanced.callGeminiAPI('Generate a test blog post about SEO', 'blog_generation');
+                setTestStatus('generator', 'success', 'Blog generator working correctly');
+            } catch (error) {
+                setTestStatus('generator', 'error', error.message);
+            }
+        }
+        
+        async function testKeywordResearch() {
+            setTestStatus('keywords', 'testing');
+            try {
+                const response = await FluxSEOEnhanced.callGeminiAPI('Research keywords for SEO tools', 'keyword_research');
+                setTestStatus('keywords', 'success', 'Keyword research working correctly');
+            } catch (error) {
+                setTestStatus('keywords', 'error', error.message);
+            }
+        }
+        
+        async function testMetaGenerator() {
+            setTestStatus('meta', 'testing');
+            try {
+                const response = await FluxSEOEnhanced.callGeminiAPI('Generate meta tags for SEO page', 'meta_generation');
+                setTestStatus('meta', 'success', 'Meta generator working correctly');
+            } catch (error) {
+                setTestStatus('meta', 'error', error.message);
+            }
+        }
+        
+        async function testSchemaGenerator() {
+            setTestStatus('schema', 'testing');
+            try {
+                const response = await FluxSEOEnhanced.callGeminiAPI('Generate schema markup for article', 'schema_generation');
+                setTestStatus('schema', 'success', 'Schema generator working correctly');
+            } catch (error) {
+                setTestStatus('schema', 'error', error.message);
+            }
+        }
+        
+        async function testTechnicalAudit() {
+            setTestStatus('technical', 'testing');
+            try {
+                const response = await FluxSEOEnhanced.callGeminiAPI('Perform technical SEO audit', 'technical_audit');
+                setTestStatus('technical', 'success', 'Technical audit working correctly');
+            } catch (error) {
+                setTestStatus('technical', 'error', error.message);
+            }
+        }
+        
+        async function testChatbot() {
+            setTestStatus('chatbot', 'testing');
+            try {
+                const response = await FluxSEOEnhanced.callGeminiAPI('Hello, test chatbot response', 'chatbot');
+                setTestStatus('chatbot', 'success', 'Chatbot working correctly');
+            } catch (error) {
+                setTestStatus('chatbot', 'error', error.message);
+            }
+        }
+        
+        async function testGoalsAnalysis() {
+            setTestStatus('goals', 'testing');
+            try {
+                const response = await FluxSEOEnhanced.callGeminiAPI('Analyze SEO goals for e-commerce', 'goals_analysis');
+                setTestStatus('goals', 'success', 'Goals analysis working correctly');
+            } catch (error) {
+                setTestStatus('goals', 'error', error.message);
+            }
+        }
+        
+        async function testKeywordsAnalysis() {
+            setTestStatus('keywords-analysis', 'testing');
+            try {
+                const response = await FluxSEOEnhanced.callGeminiAPI('Analyze keywords for SEO', 'keyword_analysis');
+                setTestStatus('keywords-analysis', 'success', 'Keywords analysis working correctly');
+            } catch (error) {
+                setTestStatus('keywords-analysis', 'error', error.message);
+            }
+        }
+        
+        async function testBacklinksAnalysis() {
+            setTestStatus('backlinks', 'testing');
+            try {
+                const response = await FluxSEOEnhanced.callGeminiAPI('Analyze backlink profile', 'backlink_analysis');
+                setTestStatus('backlinks', 'success', 'Backlinks analysis working correctly');
+            } catch (error) {
+                setTestStatus('backlinks', 'error', error.message);
+            }
+        }
+        
+        async function testContentStrategy() {
+            setTestStatus('content-strategy', 'testing');
+            try {
+                const response = await FluxSEOEnhanced.callGeminiAPI('Create content strategy', 'content_strategy');
+                setTestStatus('content-strategy', 'success', 'Content strategy working correctly');
+            } catch (error) {
+                setTestStatus('content-strategy', 'error', error.message);
+            }
+        }
+        
+        async function testPerformanceReport() {
+            setTestStatus('report', 'testing');
+            try {
+                const response = await FluxSEOEnhanced.callGeminiAPI('Generate performance report', 'performance_report');
+                setTestStatus('report', 'success', 'Performance report working correctly');
+            } catch (error) {
+                setTestStatus('report', 'error', error.message);
+            }
+        }
+        
+        async function testMonitoringSetup() {
+            setTestStatus('monitoring', 'testing');
+            try {
+                const response = await FluxSEOEnhanced.callGeminiAPI('Setup monitoring strategy', 'monitoring_setup');
+                setTestStatus('monitoring', 'success', 'Monitoring setup working correctly');
+            } catch (error) {
+                setTestStatus('monitoring', 'error', error.message);
+            }
+        }
+        
+        async function runAllTests() {
+            if (!localStorage.getItem('flux_seo_gemini_api_key')) {
+                alert('Please set your API key first');
+                return;
+            }
+            
+            // Reset results
+            testResults = {};
+            completedTests = 0;
+            document.getElementById('results-content').innerHTML = '';
+            document.getElementById('test-results').style.display = 'none';
+            
+            // Run all tests with delays to avoid rate limiting
+            const tests = [
+                testContentAnalyzer,
+                testBlogGenerator,
+                testKeywordResearch,
+                testMetaGenerator,
+                testSchemaGenerator,
+                testTechnicalAudit,
+                testChatbot,
+                testGoalsAnalysis,
+                testKeywordsAnalysis,
+                testBacklinksAnalysis,
+                testContentStrategy,
+                testPerformanceReport,
+                testMonitoringSetup
+            ];
+            
+            for (let i = 0; i < tests.length; i++) {
+                await tests[i]();
+                // Wait 2 seconds between tests to avoid rate limiting
+                if (i < tests.length - 1) {
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                }
+            }
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Disable test buttons initially
+            document.querySelectorAll('.ai-test-button').forEach(btn => {
+                if (btn.textContent === 'Test') {
+                    btn.disabled = true;
+                }
+            });
+            
+            // Check if API key is already set
+            if (localStorage.getItem('flux_seo_gemini_api_key')) {
+                document.getElementById('api-key-status').textContent = 'Set';
+                document.getElementById('api-key-status').className = 'ai-test-status success';
+                document.querySelectorAll('.ai-test-button').forEach(btn => {
+                    if (btn.textContent === 'Test') {
+                        btn.disabled = false;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

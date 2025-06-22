@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flux SEO Enhanced Plugin Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&family=Kanit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="flux-seo-enhanced-gemini.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .test-header h1 {
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        
+        .test-header p {
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🚀 Flux SEO Enhanced Plugin Test</h1>
+            <p>Testing all components and functionality from the React app</p>
+        </div>
+        
+        <!-- Include the main plugin HTML content -->
+        <div id="flux-seo-enhanced-container" class="flux-seo-enhanced-app">
+            <!-- Language Switcher -->
+            <div class="flux-seo-language-switcher">
+                <label for="flux-seo-language-select">Language / ภาษา:</label>
+                <select id="flux-seo-language-select" class="flux-seo-language-dropdown">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="th">🇹🇭 ไทย</option>
+                </select>
+            </div>
+
+            <!-- Enhanced Header -->
+            <div class="flux-seo-header">
+                <div class="flux-seo-header-content">
+                    <div class="flux-seo-logo">
+                        <div class="flux-seo-logo-icon">⚡</div>
+                        <div class="flux-seo-logo-text">
+                            <h1 id="flux-seo-title">Flux SEO Pro Optimizer</h1>
+                            <p id="flux-seo-subtitle">Professional SEO optimization suite with AI-powered automation and comprehensive analysis tools</p>
+                        </div>
+                    </div>
+                    <div class="flux-seo-features-badges">
+                        <span class="flux-seo-badge">Content Analysis</span>
+                        <span class="flux-seo-badge">AI Content Generator</span>
+                        <span class="flux-seo-badge">Advanced Analytics</span>
+                        <span class="flux-seo-badge">Technical SEO</span>
+                        <span class="flux-seo-badge">Schema Markup</span>
+                        <span class="flux-seo-badge">Keyword Research</span>
+                        <span class="flux-seo-badge">Thai/English Support</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Navigation -->
+            <div class="flux-seo-nav">
+                <button class="flux-seo-nav-tab active" data-tab="analyzer">
+                    <span class="flux-seo-nav-icon">🔍</span>
+                    <span class="flux-seo-nav-text" data-key="contentAnalyzer">Analyzer</span>
+                </button>
+                <button class="flux-seo-nav-tab" data-tab="generator">
+                    <span class="flux-seo-nav-icon">📝</span>
+                    <span class="flux-seo-nav-text" data-key="blogGenerator">Generator</span>
+                </button>
+                <button class="flux-seo-nav-tab" data-tab="analytics">
+                    <span class="flux-seo-nav-icon">📊</span>
+                    <span class="flux-seo-nav-text" data-key="advancedAnalytics">Analytics</span>
+                </button>
+                <button class="flux-seo-nav-tab" data-tab="keywords">
+                    <span class="flux-seo-nav-icon">🎯</span>
+                    <span class="flux-seo-nav-text" data-key="keywordResearch">Keywords</span>
+                </button>
+                <button class="flux-seo-nav-tab" data-tab="meta">
+                    <span class="flux-seo-nav-icon">🌐</span>
+                    <span class="flux-seo-nav-text" data-key="metaTags">Meta Tags</span>
+                </button>
+                <button class="flux-seo-nav-tab" data-tab="schema">
+                    <span class="flux-seo-nav-icon">📋</span>
+                    <span class="flux-seo-nav-text" data-key="schema">Schema</span>
+                </button>
+                <button class="flux-seo-nav-tab" data-tab="technical">
+                    <span class="flux-seo-nav-icon">⚙️</span>
+                    <span class="flux-seo-nav-text" data-key="technical">Technical</span>
+                </button>
+                <button class="flux-seo-nav-tab" data-tab="chatbot">
+                    <span class="flux-seo-nav-icon">💬</span>
+                    <span class="flux-seo-nav-text" data-key="chatbot">Chatbot</span>
+                </button>
+                <button class="flux-seo-nav-tab" data-tab="settings">
+                    <span class="flux-seo-nav-icon">⚙️</span>
+                    <span class="flux-seo-nav-text" data-key="settings">Settings</span>
+                </button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="flux-seo-content">
+                <!-- Test message -->
+                <div id="test-message" style="background: #10b981; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+                    ✅ All components loaded successfully! Click on the tabs above to test each feature.
+                </div>
+                
+                <!-- Include all tab content from demo-enhanced-gemini.html -->
+                <!-- This would be dynamically loaded in the actual plugin -->
+                <div id="analyzer-tab" class="flux-seo-tab-content active">
+                    <div class="flux-seo-card">
+                        <div class="flux-seo-card-header">
+                            <h2 class="flux-seo-card-title">
+                                <span class="flux-seo-card-icon">🔍</span>
+                                <span>Content Analyzer</span>
+                            </h2>
+                            <p class="flux-seo-card-description">
+                                Test the content analyzer functionality
+                            </p>
+                        </div>
+                        <div class="flux-seo-card-body">
+                            <p>Content analyzer is ready for testing!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="flux-seo-enhanced-gemini.js"></script>
+    <script>
+        // Test script to verify functionality
+        $(document).ready(function() {
+            console.log('🚀 Flux SEO Enhanced Plugin Test Page Loaded');
+            console.log('✅ jQuery loaded:', typeof $ !== 'undefined');
+            console.log('✅ FluxSEOEnhanced object:', typeof window.FluxSEOEnhanced !== 'undefined');
+            
+            // Test notification system
+            setTimeout(function() {
+                if (window.FluxSEOEnhanced && window.FluxSEOEnhanced.showNotification) {
+                    window.FluxSEOEnhanced.showNotification('Plugin test page loaded successfully!', 'success');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
