@@ -26,10 +26,17 @@
                     <label class="flux-seo-label"><?php _e('Meta Description', 'flux-seo-enhanced'); ?></label>
                     <textarea id="meta-description" class="flux-seo-textarea" rows="3"
                               placeholder="<?php _e('Enter your meta description (150-160 characters)', 'flux-seo-enhanced'); ?>"></textarea>
-                    <div class="flux-seo-char-count">
-                        <span id="description-count">0</span>/160 <?php _e('characters', 'flux-seo-enhanced'); ?>
+                    <div class="flux-seo-input-meta">
+                        <div class="flux-seo-char-count">
+                            <span id="description-count">0</span>/160 <?php _e('characters', 'flux-seo-enhanced'); ?>
+                        </div>
+                        <button type="button" id="suggest-meta-description-btn" class="flux-seo-btn flux-seo-btn-xs flux-seo-btn-outline">
+                            <span class="flux-seo-btn-icon">💡</span>
+                            <?php _e('Suggest', 'flux-seo-enhanced'); ?>
+                        </button>
                     </div>
                 </div>
+                <div id="meta-description-suggestions" class="flux-seo-suggestions-container" style="display: none;"></div>
                 <div class="flux-seo-form-group">
                     <label class="flux-seo-label"><?php _e('Keywords', 'flux-seo-enhanced'); ?></label>
                     <input type="text" id="meta-keywords" class="flux-seo-input" 

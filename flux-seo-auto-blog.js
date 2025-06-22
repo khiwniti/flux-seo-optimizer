@@ -161,63 +161,80 @@
             }
             
             this.setLoading('#test-generation-btn', true);
+
+            // Use the first topic from the list for the test
+            const topicsArray = formData.content_topics.split('\n').map(t => t.trim()).filter(t => t);
+            const testTopic = topicsArray.length > 0 ? topicsArray[0] : 'a general SEO topic';
+
+            const data = {
+                action: 'flux_seo_enhanced_action', // Main plugin's AJAX action
+                action_type: 'test_auto_blog_generation',
+                nonce: fluxSeoEnhanced.nonce,
+                topic: testTopic, // This is the first topic from the list
+                content_type: formData.content_type,
+                tone: formData.writing_tone,
+                // 'audience' is not a direct input on the auto-blog form, but 'target_audience' is.
+                // The PHP handler expects 'audience'. Let's send what we have.
+                audience: formData.target_audience,
+                language: formData.language || window.FluxSEOEnhanced.currentLanguage || 'en'
+            };
             
-            // Simulate test generation
-            setTimeout(() => {
-                const topics = formData.content_topics.split('\n');
-                const randomTopic = topics[Math.floor(Math.random() * topics.length)].trim();
-                
-                const testResult = {
-                    topic: randomTopic,
-                    title: `Test: ${randomTopic} - Complete Guide`,
-                    estimated_words: this.getWordCountFromRange(formData.word_count_range),
-                    estimated_time: '2-3 minutes',
-                    seo_score: Math.floor(Math.random() * 20) + 80,
-                    readability_score: Math.floor(Math.random() * 20) + 75
-                };
-                
-                this.showTestResult(testResult);
-                this.setLoading('#test-generation-btn', false);
-            }, 2000);
+            $.post(fluxSeoEnhanced.ajaxurl, data)
+                .done((response) => {
+                    if (response.success && response.data) {
+                        const testResult = {
+                            topic: response.data.topic || testTopic, // Use topic from AI response or the one sent
+                            title: response.data.suggested_title || (this.currentLanguage === 'th' ? 'ชื่อเรื่องที่ AI แนะนำ' : 'AI Suggested Title'),
+                            summary: response.data.brief_summary || (this.currentLanguage === 'th' ? 'สรุปย่อที่สร้างโดย AI' : 'AI generated brief summary.'),
+                            estimated_words: this.getWordCountFromRange(formData.word_count_range),
+                        };
+                        this.showTestResult(testResult);
+                    } else {
+                        let errorMessage = this.currentLanguage === 'th' ? 'ไม่สามารถสร้างตัวอย่างทดสอบจาก AI ได้' : 'Failed to get test generation from AI.';
+                        if (response.data && response.data.message) {
+                            errorMessage = response.data.message;
+                        } else if (response.data && response.data.raw_response) {
+                             errorMessage = `${errorMessage} Raw: ${this.escapeHtml(response.data.raw_response.substring(0,100))}...`;
+                        }
+                         this.showNotification(errorMessage, 'error');
+                    }
+                })
+                .fail((jqXHR, textStatus, errorThrown) => {
+                    this.showNotification(`${this.currentLanguage === 'th' ? 'ข้อผิดพลาดเครือข่าย' : 'Network error'}: ${errorThrown}`, 'error');
+                })
+                .always(() => {
+                    this.setLoading('#test-generation-btn', false);
+                });
         },
         
         showTestResult: function(result) {
+            const isThai = this.currentLanguage === 'th';
             const modal = $(`
                 <div class="flux-seo-modal-overlay">
                     <div class="flux-seo-modal">
                         <div class="flux-seo-modal-header">
-                            <h3>🧪 Test Generation Result</h3>
+                            <h3>🧪 ${isThai ? 'ตัวอย่างการสร้างเนื้อหาทดสอบด้วย AI' : 'AI Test Generation Preview'}</h3>
                             <button class="flux-seo-modal-close">&times;</button>
                         </div>
                         <div class="flux-seo-modal-body">
                             <div class="flux-seo-test-result">
                                 <div class="flux-seo-test-item">
-                                    <strong>Topic:</strong> ${result.topic}
+                                    <strong>${isThai ? 'หัวข้อทดสอบ:' : 'Test Topic:'}</strong> ${this.escapeHtml(result.topic)}
                                 </div>
                                 <div class="flux-seo-test-item">
-                                    <strong>Generated Title:</strong> ${result.title}
+                                    <strong>${isThai ? 'ชื่อเรื่องที่แนะนำ:' : 'Suggested Title:'}</strong> ${this.escapeHtml(result.title)}
                                 </div>
                                 <div class="flux-seo-test-item">
-                                    <strong>Estimated Words:</strong> ${result.estimated_words}
+                                    <strong>${isThai ? 'สรุปย่อ:' : 'Brief Summary:'}</strong> ${this.escapeHtml(result.summary)}
                                 </div>
                                 <div class="flux-seo-test-item">
-                                    <strong>Generation Time:</strong> ${result.estimated_time}
-                                </div>
-                                <div class="flux-seo-test-scores">
-                                    <div class="flux-seo-test-score">
-                                        <span class="flux-seo-score-label">SEO Score:</span>
-                                        <span class="flux-seo-score-value">${result.seo_score}/100</span>
-                                    </div>
-                                    <div class="flux-seo-test-score">
-                                        <span class="flux-seo-score-label">Readability:</span>
-                                        <span class="flux-seo-score-value">${result.readability_score}/100</span>
-                                    </div>
+                                    <strong>${isThai ? 'จำนวนคำโดยประมาณ (จากตั้งค่า):' : 'Estimated Words (from settings):'}</strong> ${result.estimated_words}
                                 </div>
                             </div>
                         </div>
                         <div class="flux-seo-modal-footer">
                             <button class="flux-seo-btn flux-seo-btn-primary flux-seo-modal-close">
-                                ✅ Looks Good
+                                ✅ ${isThai ? 'ปิดตัวอย่าง' : 'Close Preview'}
                             </button>
                         </div>
                     </div>
@@ -231,10 +248,19 @@
             });
             
             modal.on('click', function(e) {
-                if (e.target === this) {
+                if (e.target === this) { // If click is on overlay itself
                     modal.remove();
                 }
             });
+        },
+
+        escapeHtml: function(unsafe) {
+            return unsafe
+                 .replace(/&/g, "&amp;")
+                 .replace(/</g, "&lt;")
+                 .replace(/>/g, "&gt;")
+                 .replace(/"/g, "&quot;")
+                 .replace(/'/g, "&#039;");
         },
         
         getWordCountFromRange: function(range) {
